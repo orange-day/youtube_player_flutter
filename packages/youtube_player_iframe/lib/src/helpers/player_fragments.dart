@@ -4,7 +4,8 @@ import 'package:youtube_player_iframe/youtube_player_iframe.dart';
 String youtubeIFrameTag(YoutubePlayerController controller) {
   final params = <String, String>{
     'autoplay': _boolean(controller.params.autoPlay),
-    'mute': _boolean(controller.params.mute),
+    // 'mute': _boolean(controller.params.mute),
+    'mute': '1',
     'controls': _boolean(controller.params.showControls),
     'playsinline': _boolean(controller.params.playsInline),
     'enablejsapi': _boolean(controller.params.enableJavaScript),
