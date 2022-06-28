@@ -188,6 +188,8 @@ class _WebYoutubePlayerState extends State<RawYoutubePlayer> {
             var timerId;
             function onYouTubeIframeAPIReady() {
                 player = new YT.Player('player', {
+                    videoId: '${controller.initialVideoId}',
+										playerVars: ${json.encode(getYoutubeParams(controller))},
                     events: {
                       onReady: (event) => sendMessage({ 'Ready': true }),
                       onStateChange: (event) => sendPlayerStateChange(event.data),

@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 
 import 'dart:async';
+import 'dart:convert';
 import 'dart:developer';
 
 import 'package:flutter/foundation.dart';
@@ -306,6 +307,8 @@ class _MobileYoutubePlayerState extends State<RawYoutubePlayer>
             var timerId;
             function onYouTubeIframeAPIReady() {
                 player = new YT.Player('player', {
+                    videoId: '${controller.initialVideoId}',
+										playerVars: ${json.encode(getYoutubeParams(controller))},
                     events: {
                         onReady: function(event) { window.flutter_inappwebview.callHandler('Ready'); },
                         onStateChange: function(event) { sendPlayerStateChange(event.data); },
